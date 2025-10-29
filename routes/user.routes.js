@@ -1,9 +1,10 @@
 import express from "express"
 import { db } from "../db/index.js"
 import { usersTable } from "../models/user.model.js"
-import { createHmac, randomBytes } from "crypto"
 import { signupPostRequestBodySchema } from "../validations/request.validations.js"
 import { eq } from "drizzle-orm"
+
+import { hashPasswordWithSalt } from "../utils/hash.js"
 
 const router = express.Router()
 
@@ -29,11 +30,7 @@ router.post("/signup", async (req, res) => {
       .json({ error: `User with email ${email} already exists!` })
   }
 
-  const salt = randomBytes(256).toString("hex")
-
-  const hashedPassword = createHmac("sha256", salt)
-    .update(password)
-    .digest("hex")
+  const { salt, password: hashedPassword } = hashPasswordWithSalt(password)
 
   const [user] = await db
     .insert(usersTable)
