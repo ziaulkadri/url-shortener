@@ -1,11 +1,11 @@
 import express from "express"
-// import { db } from "../db/index.js"
-// import { usersTable } from "../models/user.model.js"
-import { signupPostRequestBodySchema,loginPostRequestBodySchema } from "../validations/request.validations.js"
+import {
+  signupPostRequestBodySchema,
+  loginPostRequestBodySchema,
+} from "../validations/request.validations.js"
 import { createUser, getUserByEmail } from "../services/user.service.js"
 import { hashPasswordWithSalt } from "../utils/hash.js"
-
-import jwt from "jsonwebtoken"
+import { createUserToken } from "../utils/token.js"
 
 const router = express.Router()
 
@@ -41,7 +41,6 @@ router.post("/signup", async (req, res) => {
   return res.status(201).json({ data: { userId: user.id } })
 })
 
-
 router.post("/login", async (req, res) => {
   const validationResult = await loginPostRequestBodySchema.safeParseAsync(
     req.body
@@ -67,9 +66,7 @@ router.post("/login", async (req, res) => {
     return res.status(400).json({ error: `invalid password` })
   }
 
-  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-    expiresIn: "5m",
-  })
+  const token = await createUserToken({ id: user.id })
 
   return res.json({ status: "success", token: token })
 })
