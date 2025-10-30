@@ -10,35 +10,21 @@ A modern, full‑stack URL shortener consisting of a Next.js frontend and a Node
 
 ## ✨ Screenshots
 
-> Place screenshots at `docs/screenshots/` with the following filenames, or update the paths below.
->
-> - `home.png` – Landing page
-> - `shorten.png` – Shorten a URL page
-> - `dashboard.png` – My URLs dashboard
-
-### Quick Gallery
-
-<p align="center">
-  <img src="./docs/screenshots/home.png" alt="Homepage" width="31%" style="margin-right: 1%; border-radius: 12px;"/>
-  <img src="./docs/screenshots/shorten.png" alt="Shorten a URL" width="31%" style="margin-right: 1%; border-radius: 12px;"/>
-  <img src="./docs/screenshots/dashboard.png" alt="My URLs Dashboard" width="31%" style="border-radius: 12px;"/>
-</p>
 
 ### Individual Views
 
-- Homepage (hero + features)
-  
-  ![Homepage](./docs/screenshots/home.png)
+- Homepage 
+<img width="1724" height="994" alt="Screenshot 2025-10-30 at 11 03 50 PM" src="https://github.com/user-attachments/assets/20f85ba3-deda-4afe-b826-0d9fe9def404" />
 
-- Dashboard (My URLs)
-  
-  ![Dashboard](./docs/screenshots/dashboard.png)
+ - Dashboard (My URLs)
+
+<img width="1724" height="994" alt="Screenshot 2025-10-30 at 11 04 22 PM" src="https://github.com/user-attachments/assets/5bf863c0-2d3e-4cf2-b9f2-99e8db2e2b16" />
 
 - Shorten URL
-  
-  ![Shorten](./docs/screenshots/shorten.png)
+<img width="1724" height="994" alt="Screenshot 2025-10-30 at 11 05 22 PM" src="https://github.com/user-attachments/assets/f7a214a5-21b5-4d32-8aa3-1f3dc3241c27" />
 
-> Tip: Create the images directory: `mkdir -p docs/screenshots` and drop your PNGs there.
+  
+
 
 ---
 
