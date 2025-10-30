@@ -2,6 +2,7 @@ import express from "express"
 import { shortenPostRequestBodySchema } from "../validations/request.validations.js"
 import { insertUrl } from "../services/url.service.js"
 import { ensureAuthenticated } from "../middlewares/auth.middleware.js"
+import { getUrlByShortCode, getUrlsByUserId } from "../services/url.service.js"
 const router = express.Router()
 
 router.post("/shorten", ensureAuthenticated, async function (req, res) {
@@ -14,13 +15,28 @@ router.post("/shorten", ensureAuthenticated, async function (req, res) {
   }
 
   const { url, code } = validationResult.data
-
+  const userId = req.user.id
   const data = await insertUrl({ url, code, userId })
 
   return res.status(201).json({
     message: "URL shortened successfully",
     data,
   })
+})
+
+router.get("/:shortCode", async function (req, res) {
+  const { shortCode } = req.params
+  const urlEntry = await getUrlByShortCode(shortCode)
+  if (!urlEntry || !urlEntry.targetUrl) {
+    return res.status(404).json({ error: "Shortened URL not found" })
+  }
+  return res.redirect(urlEntry.targetUrl)
+})
+
+router.get("/my/urls", ensureAuthenticated, async function (req, res) {
+  const userId = req.user.id
+  const urls = await getUrlsByUserId(userId)
+  return res.status(200).json({ data: urls })
 })
 
 export default router
