@@ -10,7 +10,21 @@ A modern, full‑stack URL shortener consisting of a Next.js frontend and a Node
 
 ## ✨ Screenshots
 
-> Replace these with your own images or use the placeholders below.
+> Place screenshots at `docs/screenshots/` with the following filenames, or update the paths below.
+>
+> - `home.png` – Landing page
+> - `shorten.png` – Shorten a URL page
+> - `dashboard.png` – My URLs dashboard
+
+### Quick Gallery
+
+<p align="center">
+  <img src="./docs/screenshots/home.png" alt="Homepage" width="31%" style="margin-right: 1%; border-radius: 12px;"/>
+  <img src="./docs/screenshots/shorten.png" alt="Shorten a URL" width="31%" style="margin-right: 1%; border-radius: 12px;"/>
+  <img src="./docs/screenshots/dashboard.png" alt="My URLs Dashboard" width="31%" style="border-radius: 12px;"/>
+</p>
+
+### Individual Views
 
 - Homepage (hero + features)
   
