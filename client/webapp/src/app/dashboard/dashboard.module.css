@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+.card {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 18px #185abd22;
+  width: 100%;
+  max-width: 700px;
+  box-sizing: border-box;
+}
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.tableWrapper {
+  overflow-x: auto;
+}
+.myTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fcfdff;
+  table-layout: fixed;
+}
+.myTable thead th {
+  padding: 0.82rem 0.51rem;
+  background: #185abd11;
+  font-weight: 650;
+  border-bottom: 2px solid #e2eaf4;
+  font-size: 1.04rem;
+  color: #1b2150;
+  text-align: left;
+}
+.myTable th:last-child {
+  text-align: right;
+}
+.myTable td {
+  vertical-align: middle;
+  padding: 0.68rem 0.5rem;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 1rem;
+  text-align: left;
+  word-break: break-word;
+}
+.myTable td:last-child {
+  font-size: 0.97rem;
+  color: #5c6570;
+  text-align: right;
+  white-space: nowrap;
+}
+.myTable tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+.myTable tbody tr:hover {
+  background: #e6f0fa;
+}
+.shortLink {
+  color: #185abd;
+  text-decoration: underline;
+  font-weight: 600;
+  word-break: break-all;
+  display: inline-block;
+  max-width: 210px;
+  overflow-wrap: anywhere;
+}
+.date {
+  white-space: nowrap;
+  font-size: 0.98rem;
+  color: #5c6570;
+  text-align: right;
+}
+.error {
+  color: #d92029;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.98rem;
+}
+@media (max-width: 640px) {
+  .card {
+    padding: 1.2rem 0.4rem;
+    min-width: 0;
+  }
+  .myTable th, .myTable td {
+    padding: 0.45rem 0.28rem;
+    font-size: 0.99rem;
+  }
+  .myTable td:last-child, .date {
+    font-size: 0.92rem;
+  }
+}

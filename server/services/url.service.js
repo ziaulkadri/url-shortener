@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid"
 import { db } from "../db/index.js"
 import { urlsTable } from "../models/url.model.js"
-import { eq } from "drizzle-orm"
+import { eq, and } from "drizzle-orm"
 
 export async function insertUrl(urlData) {
   const shortcode = urlData.code ?? nanoid(6)
@@ -45,4 +45,12 @@ export async function getUrlsByUserId(userId) {
     .from(urlsTable)
     .where(eq(urlsTable.userId, userId))
   return results
+}
+
+export async function deleteUrlByIdForUser(urlId, userId) {
+  const deleted = await db
+    .delete(urlsTable)
+    .where(and(eq(urlsTable.id, urlId), eq(urlsTable.userId, userId)))
+    .returning({ id: urlsTable.id })
+  return deleted?.[0] ?? null
 }

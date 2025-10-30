@@ -1,0 +1,15 @@
+.container {
+  max-width: 860px;
+  margin: 2rem auto;
+  padding: 1.2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 28px #185abd18;
+}
+.title { font-size: 2rem; font-weight: 800; margin-bottom: 0.6rem; color: #185abd; }
+.subtitle { color: #475569; margin-bottom: 1.2rem; }
+.section { margin: 1.2rem 0; }
+.h2 { font-size: 1.25rem; font-weight: 700; margin: 0.8rem 0; }
+.p { line-height: 1.7; color: #334155; }
+.list { padding-left: 1.2rem; color: #334155; }
+.link { color: #185abd; text-decoration: underline; }
